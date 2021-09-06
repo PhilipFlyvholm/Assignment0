@@ -11,7 +11,7 @@ namespace Program.Tests
         {
             var writer = new StringWriter();
             Console.SetOut(writer);
-            HelloWorld.Main(new String[0]);
+            HelloWorld.PrintHelloWorld();
             var output = writer.GetStringBuilder().ToString().Trim();
             Assert.Equal("Hello World!", output);
         }
