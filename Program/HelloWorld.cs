@@ -14,9 +14,10 @@ namespace Program
             catch (FormatException)
             {
                 Console.WriteLine("Input must be an integer");
-                leapYear.promtUserInput();
+                Main(args);
             }
         }
+
         public static void PrintHelloWorld()
         {
             Console.WriteLine("Hello World!");

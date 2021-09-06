@@ -10,7 +10,7 @@ namespace Program
             var input = Console.ReadLine();
             promtUserInput(input);
         }
-        public void promtUserInput(String input)
+        public void promtUserInput(string input)
         {
             try
             {
