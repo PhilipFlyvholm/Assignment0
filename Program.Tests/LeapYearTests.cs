@@ -7,7 +7,7 @@ namespace Program.Tests
     public class LeapYearTests
     {
         [Fact]
-        public void leap_year_returns_true()
+        public void is_leap_year_returns_true()
         {
             var leapYear = new LeapYear();
             Assert.True(leapYear.IsLeapYear(2000));
@@ -21,7 +21,7 @@ namespace Program.Tests
         }
 
         [Fact]
-        public void leap_year_returns_false()
+        public void is_leap_year_returns_false()
         {
             var leapYear = new LeapYear();
             Assert.False(leapYear.IsLeapYear(1900));
@@ -31,5 +31,26 @@ namespace Program.Tests
             Assert.False(leapYear.IsLeapYear(1985));
             Assert.False(leapYear.IsLeapYear(1914));
         }
+
+        [Fact]
+        public void is_leap_year_throws_exception()
+        {
+            var leapYear = new LeapYear();
+            Assert.Throws<ArgumentException>(new Action(() =>
+            {
+                leapYear.IsLeapYear(1400);
+            }));
+        }
+
+        [Fact]
+        public void promt_user_input_throws_exception()
+        {
+            var leapYear = new LeapYear();
+            Assert.Throws<FormatException>(new Action(() =>
+            {
+                leapYear.promtUserInput("Hello");
+            }));
+        }
+
     }
 }

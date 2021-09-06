@@ -7,7 +7,15 @@ namespace Program
         public static void Main(string[] args)
         {
             var leapYear = new LeapYear();
-            leapYear.promtUserInput();
+            try
+            {
+                leapYear.promtUserInput();
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Input must be an integer");
+                leapYear.promtUserInput();
+            }
         }
         public static void PrintHelloWorld()
         {

@@ -8,12 +8,28 @@ namespace Program
         {
             Console.WriteLine("Type an year and press enter");
             var input = Console.ReadLine();
-            int inputValue = Convert.ToInt32(input);
-            Console.WriteLine(IsLeapYear(inputValue) ? "Yay" : "Nay");
+            promtUserInput(input);
+        }
+        public void promtUserInput(String input)
+        {
+            try
+            {
+                int inputValue = Convert.ToInt32(input);
+                Console.WriteLine(IsLeapYear(inputValue) ? "Yay" : "Nay");
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e.Message);
+                promtUserInput();
+            }
         }
 
         public bool IsLeapYear(int year)
         {
+            if (year < 1582)
+            {
+                throw new ArgumentException("Year must be higher than 1582");
+            }
             return year % 100 == 0 ? year % 400 == 0 : year % 4 == 0;
         }
     }
